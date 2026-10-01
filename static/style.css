@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1120;
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    background: #111827;
+    padding: 25px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #374151;
+}
+
+.header h1 {
+    font-size: 30px;
+    color: #f9fafb;
+    margin-bottom: 6px;
+}
+
+.header p {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.status {
+    color: #22c55e;
+    font-weight: bold;
+    background: #052e16;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 25px 35px;
+}
+
+.card {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.card h3 {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.card span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #f9fafb;
+}
+
+.critical-card {
+    border: 1px solid #ef4444;
+}
+
+.critical-card span {
+    color: #ef4444;
+}
+
+/* CHARTS */
+.charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 35px 25px;
+}
+
+.chart-box {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 330px;
+}
+
+.chart-box h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #f9fafb;
+}
+
+.chart-box canvas {
+    max-height: 250px;
+}
+
+/* SECURITY EVENTS */
+.panel {
+    margin: 0 35px 35px;
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.toolbar h2 {
+    font-size: 20px;
+    color: #f9fafb;
+}
+
+.toolbar div {
+    display: flex;
+    gap: 10px;
+}
+
+input,
+select {
+    background: #1f2937;
+    color: #f9fafb;
+    border: 1px solid #4b5563;
+    border-radius: 6px;
+    padding: 10px 12px;
+    outline: none;
+}
+
+input {
+    width: 230px;
+}
+
+input:focus,
+select:focus {
+    border-color: #60a5fa;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #1f2937;
+    color: #d1d5db;
+    padding: 12px;
+    text-align: left;
+    font-size: 13px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #374151;
+    color: #d1d5db;
+    font-size: 13px;
+}
+
+tr:hover {
+    background: #1f2937;
+}
+
+/* SEVERITY */
+.severity {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.severity.critical {
+    background: #991b1b;
+    color: #ffffff;
+    border: 1px solid #ef4444;
+}
+
+.severity.high {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+.severity.medium {
+    background: #92400e;
+    color: #fed7aa;
+}
+
+.severity.low {
+    background: #166534;
+    color: #bbf7d0;
+}
+
+/* DELETE BUTTON */
+td button {
+    background: #991b1b;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+td button:hover {
+    background: #b91c1c;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .charts {
+        padding: 0 20px 20px;
+    }
+
+    .panel {
+        margin: 0 20px 20px;
+    }
+}

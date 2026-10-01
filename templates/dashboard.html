@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IDS Security Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+    <div>
+        <h1>Intrusion Detection System</h1>
+        <p>Real-Time Security Monitoring & SOC Detection</p>
+    </div>
+
+    <div class="status">
+        ● SYSTEM ACTIVE
+    </div>
+</div>
+
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Total Events</h3>
+        <span id="total">0</span>
+    </div>
+
+    <div class="card critical-card">
+        <h3>Critical</h3>
+        <span id="critical">0</span>
+    </div>
+
+    <div class="card">
+        <h3>High Severity</h3>
+        <span id="high">0</span>
+    </div>
+
+    <div class="card">
+        <h3>Medium Severity</h3>
+        <span id="medium">0</span>
+    </div>
+
+    <div class="card">
+        <h3>Low Severity</h3>
+        <span id="low">0</span>
+    </div>
+
+</div>
+
+
+<div class="charts">
+
+    <div class="chart-box">
+        <h2>Severity Distribution</h2>
+        <canvas id="severityChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h2>Detection Types</h2>
+        <canvas id="typeChart"></canvas>
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <div class="toolbar">
+
+        <h2>Security Events</h2>
+
+        <div>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search IP, port, event..."
+                onkeyup="loadEvents()"
+            >
+
+            <select id="filter" onchange="loadEvents()">
+                <option value="ALL">All</option>
+                <option value="CRITICAL">Critical</option>
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
+            </select>
+
+            <button onclick="clearEvents()">
+                Clear Logs
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Severity</th>
+                <th>Source IP</th>
+                <th>Port</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="events"></tbody>
+
+    </table>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>
