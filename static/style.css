@@ -270,3 +270,29 @@ td button:hover {
         margin: 0 20px 20px;
     }
 }
+.security-alert {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 320px;
+    padding: 18px;
+    background: #7f1d1d;
+    color: #ffffff;
+    border: 2px solid #ef4444;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.security-alert strong {
+    font-size: 16px;
+}
+.chart-box {
+    min-height: 330px;
+}
+
+.chart-box canvas {
+    max-height: 250px;
+}
